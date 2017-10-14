@@ -29,6 +29,9 @@ class NewsListItem extends Component {
         return (
             <a href={this.props.item.url} target="_blank">
             <div className="news_item_container">
+                <div className="news_item_img_container">
+                    <img src={this.props.item.img} />
+                </div>
                 <div className="news_item_basic_info_container">
                     <h4 className="news_item_title">{this.props.item.title}!</h4>
                     <p>Source: {this.props.item.domain}</p>

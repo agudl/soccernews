@@ -1,11 +1,15 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900');
 
+body {
+    background-color: #F9F9F9;
+}
+
 .App {
     display: flex;
     align-items: center;
     justify-content: center;
     font-family: 'Source Sans Pro', sans-serif;
-    background-color: #FCFCFC;
+    background-color: #F9F9F9;
     color: #000;
 }
 
@@ -121,6 +125,13 @@
     position: absolute;
     top: 20px;
     right: 20px;
+}
+
+.news_item_img_container img {
+    width: 58px;
+    height: 56px;
+    border-radius: 100%;
+    margin-left: 27px;
 }
 
 .news_item_created {

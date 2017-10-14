@@ -59,11 +59,18 @@ class App extends Component {
                 let newState = []
                 let goals = []
                 redditNews.data.children.forEach(function(item) {
+                    console.log(item)
                     if (item.data.domain.slice(0,4) === 'self') {
                         return
                     }
                         let singleNews = {};
                         singleNews.title = item.data.title;
+                        if (item.data.preview !== undefined) {
+                            singleNews.img = item.data.preview.images[0].source.url
+                        } else {
+                            singleNews.img = 'http://21642-presscdn.pagely.netdna-cdn.com/wp-content/themes/nucleare-pro/images/no-image-box.png'
+                        }
+                        // .images[0].source.url
                         singleNews.url = item.data.url;
                         singleNews.ups = item.data.ups;
                         singleNews.domain = item.data.domain;
