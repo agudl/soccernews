@@ -11,25 +11,18 @@ class NewsListItem extends Component {
             created: 0,
         }
 
+        console.log(this.props.item)
+
         this.getScore();
-        this.getDateCreated();
         this.getScore = this.getScore.bind(this);
-        this.getDateCreated = this.getDateCreated.bind(this);
+        // this.getDateCreated = this.getDateCreated.bind(this);
     }
 
     getScore() {
-
         fetch('https://www.reddit.com/user/'+this.props.item.author+'/about.json')
             .then((newsAuthor) => { let rauthor = newsAuthor.json(); return rauthor})
-            .then((newsAuthor) => { let newsPoints = newsAuthor.data.link_karma/(newsAuthor.data.link_karma/4) + this.props.item.ups +this.props.item.numComments*2; return newsPoints })
+            .then((newsAuthor) => { let newsPoints = newsAuthor.data.link_karma/(newsAuthor.data.link_karma/1.5) + this.props.item.ups +this.props.item.numComments*2; return Math.round(newsPoints) })
             .then((newsPoints) => { this.setState({score:newsPoints}) })
-    }
-
-    getDateCreated() {
-
-        let fromNow = moment(new Date(this.props.item.created*1000).toString()).fromNow()
-
-        this.state.created = fromNow
     }
 
     render() {
@@ -42,7 +35,7 @@ class NewsListItem extends Component {
                 </div>
                 <div className="news_item_score">{this.state.score}</div>
                 <div className="news_item_created">
-                    {this.state.created}
+                    {this.props.item.subreddit} {this.props.item.created}
                 </div>
             </div>
             </a>
