@@ -53,7 +53,7 @@ class App extends Component {
     }
 
     getNews() {
-        fetch('https://www.reddit.com/r/Everton+Gooners+Gunners+LiverpoolFC+PremierLeague+ThreeLions+avfc+chelseafc+crystalpalace+fcbayern+reddevils+soccer+worldcup+worldfootball/new/.json?limit=1000')
+        fetch('https://www.reddit.com/r/Everton+Gooners+Gunners+LiverpoolFC+PremierLeague+ThreeLions+avfc+chelseafc+crystalpalace+fcbayern+MCFC+reddevils+soccer+bundesliga+worldcup+worldfootball+ACMilan+ASRoma+FCInterMilan+Juve+spanishfootball+realmadrid+Barca+atletico+Championship+LeagueOne+lcfc+coys+ussoccer/new/.json?limit=1000')
             .then((redditNews) => { let rnews = redditNews.json(); return rnews})
             .then(function(redditNews) {
                 let newState = []
